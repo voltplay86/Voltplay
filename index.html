@@ -1,270 +1,330 @@
 
-<!doctype html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#08090d">
-<meta name="description" content="VOLTPLAY — Tesla-first entertainment hub">
-<title>VOLTPLAY — Tesla Entertainment</title>
+<title>VOLTPLAY | Tesla Entertainment</title>
 <style>
-:root{color-scheme:dark;--bg:#08090d;--panel:#12151d;--panel2:#191e28;--line:#292f3b;--red:#f04458;--muted:#9ba4b3;--white:#f6f7fa}
+:root{--bg:#08090d;--panel:#151a24;--line:#303746;--red:#f04458;--muted:#9ba5b5;--white:#f7f8fc}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at 50% -20%,#5b1725 0,transparent 42%),var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;min-height:100vh}
+body{margin:0;background:radial-gradient(ellipse at top,#481522,transparent 45%),var(--bg);color:var(--white);font-family:Arial,sans-serif}
 button,input{font:inherit}
 button{cursor:pointer;color:inherit}
-.top{height:70px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:#090a0eef;position:sticky;top:0;z-index:5}
-.brand{font-weight:900;font-size:24px;letter-spacing:2px}
-.brand b{color:var(--red)}
-.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:3px;margin-top:3px}
-.top-actions{display:flex;gap:9px}
-.btn{border:1px solid var(--line);background:var(--panel2);padding:11px 15px;border-radius:11px}
-.btn.red{background:linear-gradient(120deg,#f04458,#a91d36);border:0;font-weight:700}
-.shell{max-width:1200px;margin:auto;padding:24px 20px 60px}
-.hero{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 4px 28px}
-.eyebrow{font-size:11px;color:#ff8290;letter-spacing:2px}
-.hero h1{font-size:clamp(30px,5vw,52px);margin:10px 0}
-.hero p{color:var(--muted);line-height:1.8;margin:0}
-.pill{border:1px solid #56303a;color:#ff9aa5;border-radius:30px;padding:9px 13px;font-size:12px;white-space:nowrap}
-.tabs{display:flex;gap:8px;overflow:auto;padding:8px 0 18px;scrollbar-width:none}
-.tab{white-space:nowrap;border:1px solid var(--line);background:#11151d;padding:13px 18px;border-radius:12px;color:#b9c0cb}
-.tab.active{background:#351720;border-color:#a93649;color:white}
-.panel{background:linear-gradient(145deg,#171c26,#10131a);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:18px}
-.panel h2{font-size:19px;margin:0 0 8px}
+header{height:72px;padding:0 4%;display:flex;align-items:center;justify-content:space-between;background:#090b10;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.logo{font-size:25px;font-weight:900;letter-spacing:2px}
+.logo b{color:var(--red)}
+.logo small{display:block;font-size:9px;letter-spacing:4px;color:var(--muted)}
+.btn{background:#202632;border:1px solid var(--line);border-radius:11px;padding:12px 16px}
+.primary{background:linear-gradient(120deg,#f04458,#a91d36);border:0;font-weight:bold}
+main{max-width:1400px;margin:auto;padding:22px 4% 50px}
+.hero{padding:35px;border:1px solid #63303d;border-radius:20px;background:linear-gradient(100deg,#0b0c12,#30121e);min-height:260px;display:flex;flex-direction:column;justify-content:center}
+.hero small{color:#ff8293;letter-spacing:3px}
+.hero h1{font-size:clamp(38px,6vw,65px);margin:15px 0}
+.hero p{color:#bdc4d0;line-height:1.7;max-width:650px}
+nav{display:flex;gap:8px;overflow:auto;padding:18px 0}
+nav button{white-space:nowrap;background:#151a24;border:1px solid var(--line);border-radius:11px;padding:13px 17px}
+nav button.active{background:#421b27;border-color:var(--red)}
+.panel{background:linear-gradient(145deg,#191f2b,#10141c);border:1px solid var(--line);border-radius:17px;padding:22px;margin-bottom:18px}
+.panel h2{margin-top:0}
 .muted{color:var(--muted);font-size:13px;line-height:1.7}
-.row{display:flex;gap:10px;flex-wrap:wrap}
-.field{flex:1;min-width:180px;background:#090c12;border:1px solid #343b48;border-radius:10px;color:white;padding:13px;outline:none}
-.field:focus{border-color:var(--red)}
-.player{width:100%;aspect-ratio:16/9;background:#030407;border:1px solid #303642;border-radius:14px;overflow:hidden;display:grid;place-items:center;margin-top:16px}
-.player video,.player iframe{width:100%;height:100%;border:0;background:#000}
-.placeholder{text-align:center;color:#8d97a7;padding:20px}
-.placeholder strong{display:block;color:white;font-size:17px;margin-bottom:8px}
-.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.status{font-size:12px;color:var(--muted);margin-top:12px;min-height:18px}
-.channels{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:15px}
-.channel{background:#0d1118;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:right;min-height:70px}
-.channel:hover{border-color:var(--red)}
-.channel small{display:block;color:var(--muted);font-size:11px;margin-top:7px}
-.channel.selected{border-color:var(--red);background:#27131a}
 .hidden{display:none!important}
-.note{border-right:3px solid var(--red);padding:10px 13px;background:#21151a;color:#d9c1c5;border-radius:7px;font-size:12px;line-height:1.7;margin-top:14px}
-.foot{text-align:center;color:#697383;font-size:11px;padding:20px}
-.filelabel{display:inline-flex;align-items:center;gap:8px}
-.filelabel input{max-width:190px;font-size:12px}
-.small{font-size:11px;color:var(--muted)}
-@media(max-width:650px){
-.top{padding:0 14px;height:64px}
-.brand{font-size:20px}
-.shell{padding:15px 12px 40px}
-.hero{display:block;padding:17px 4px 20px}
-.pill{display:inline-block;margin-top:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+input.field{flex:1;min-width:180px;background:#080b11;border:1px solid #394252;border-radius:10px;padding:14px;color:white}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.tile{background:#0c1119;border:1px solid var(--line);border-radius:14px;padding:20px;text-align:left;min-height:120px}
+.tile strong{display:block;font-size:17px;margin:12px 0}
+.tile span{font-size:12px;color:var(--muted)}
+.player{aspect-ratio:16/9;background:#020306;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:16px;display:grid;place-items:center}
+.player iframe,.player video{width:100%;height:100%;border:0}
+.placeholder{text-align:center;color:var(--muted)}
+.placeholder strong{display:block;color:white;font-size:20px;margin-bottom:10px}
+.results,.channels{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:15px}
+.video{background:#090d14;border:1px solid var(--line);border-radius:12px;overflow:hidden;text-align:left;padding:0}
+.video img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.video span{display:block;padding:10px;font-size:12px}
+.channel{background:#0b1018;border:1px solid var(--line);padding:13px;border-radius:10px;text-align:left}
+.channel small{display:block;color:var(--muted);margin-top:6px}
+.note{background:#28171d;border-left:3px solid var(--red);padding:12px;margin-top:14px;font-size:12px;line-height:1.7;color:#e1c7cc}
+.status{color:var(--muted);font-size:12px;margin-top:12px}
+footer{text-align:center;color:#77808e;font-size:11px;padding:25px}
+@media(max-width:700px){
+header{padding:0 14px}
+main{padding:14px 12px}
+.hero{padding:22px;min-height:230px}
 .panel{padding:15px}
-.tab{padding:12px 14px}
-.channels{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tiles{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
 <body>
-<header class="top">
-<div class="brand">⚡ VOLT<b>PLAY</b><small>TESLA ENTERTAINMENT</small></div>
-<div class="top-actions">
-<button class="btn" id="langBtn">EN</button>
-<button class="btn" id="homeBtn">⌂</button>
-</div>
+<header>
+<div class="logo">⚡ VOLT<b>PLAY</b><small>TESLA ENTERTAINMENT</small></div>
+<button class="btn" id="language">AR</button>
 </header>
 
-<main class="shell">
+<main>
 <section class="hero">
-<div>
-<div class="eyebrow" data-ar="ترفيه مصمم لشاشة تسلا" data-en="ENTERTAINMENT FOR YOUR TESLA">ترفيه مصمم لشاشة تسلا</div>
-<h1 data-ar="كل الترفيه،<br>في مكان واحد." data-en="Your entertainment.<br>One destination.">كل الترفيه،<br>في مكان واحد.</h1>
-<p data-ar="شغّل YouTube أو افتح قائمة IPTV الخاصة بك من واجهة واحدة." data-en="Open YouTube or play your own IPTV playlist from one clean interface.">شغّل YouTube أو افتح قائمة IPTV الخاصة بك من واجهة واحدة.</p>
-</div>
-<div class="pill">TESLA FIRST · BETA 01</div>
+<small>THE ELECTRIC ENTERTAINMENT EXPERIENCE</small>
+<h1 data-en="Entertainment.<br>Recharged." data-ar="الترفيه.<br>بطاقة جديدة.">Entertainment.<br>Recharged.</h1>
+<p data-en="Your entertainment universe for Tesla. Video, live TV, movies and more in one premium destination." data-ar="عالم الترفيه الخاص بك في تسلا. فيديو وتلفزيون مباشر وأفلام والمزيد في مكان واحد.">Your entertainment universe for Tesla. Video, live TV, movies and more in one premium destination.</p>
 </section>
 
-<nav class="tabs" aria-label="Main sections">
-<button class="tab active" data-tab="youtube">▶ YouTube</button>
-<button class="tab" data-tab="iptv">▣ Live TV / IPTV</button>
-<button class="tab" data-tab="library">♡ My Library</button>
+<nav>
+<button class="active" data-page="home">⌂ <span data-en="Home" data-ar="الرئيسية">Home</span></button>
+<button data-page="youtube">▶ YouTube</button>
+<button data-page="live">▣ Live TV</button>
+<button data-page="movies">▰ <span data-en="Movies" data-ar="أفلام">Movies</span></button>
+<button data-page="series">▤ <span data-en="Series" data-ar="مسلسلات">Series</span></button>
+<button data-page="library">♡ <span data-en="Library" data-ar="مكتبتي">Library</span></button>
+<button data-page="settings">⚙ <span data-en="Settings" data-ar="الإعدادات">Settings</span></button>
 </nav>
 
-<section id="youtube" class="panel">
+<section id="home" class="page">
+<div class="panel">
+<h2 data-en="Explore VOLTPLAY" data-ar="اكتشف VOLTPLAY">Explore VOLTPLAY</h2>
+<p class="muted" data-en="Choose your entertainment destination." data-ar="اختر وجهتك الترفيهية.">Choose your entertainment destination.</p>
+<div class="tiles">
+<button class="tile" data-go="youtube">▶<strong>YouTube</strong><span data-en="Search and watch" data-ar="ابحث وشاهد">Search and watch</span></button>
+<button class="tile" data-go="live">▣<strong>Live TV / IPTV</strong><span data-en="Your own playlists" data-ar="قوائم قنواتك">Your own playlists</span></button>
+<button class="tile" data-go="movies">▰<strong data-en="Movies" data-ar="أفلام">Movies</strong><span data-en="Movie library" data-ar="مكتبة الأفلام">Movie library</span></button>
+<button class="tile" data-go="series">▤<strong data-en="Series" data-ar="مسلسلات">Series</strong><span data-en="Series library" data-ar="مكتبة المسلسلات">Series library</span></button>
+</div>
+</div>
+<div class="panel">
+<h2 data-en="Made for Tesla" data-ar="مصمم لتسلا">Made for Tesla</h2>
+<p class="muted" data-en="Premium touch-friendly interface. Video playback is for passengers or while parked only." data-ar="واجهة فاخرة وسهلة اللمس. تشغيل الفيديو للركاب أو عند توقف السيارة فقط.">Premium touch-friendly interface. Video playback is for passengers or while parked only.</p>
+</div>
+</section>
+
+<section id="youtube" class="page hidden">
+<div class="panel">
 <h2>YouTube</h2>
-<p class="muted" data-ar="الصق رابط فيديو أو رابط مشاركة YouTube." data-en="Paste a YouTube video or share link.">الصق رابط فيديو أو رابط مشاركة YouTube.</p>
+<p class="muted" data-en="Search YouTube and watch inside VOLTPLAY." data-ar="ابحث في YouTube وشاهد الفيديوهات داخل VOLTPLAY.">Search YouTube and watch inside VOLTPLAY.</p>
 <div class="row">
-<input id="ytUrl" class="field" type="url" placeholder="https://www.youtube.com/watch?v=...">
-<button id="playYt" class="btn red" data-ar="تشغيل" data-en="Play">تشغيل</button>
+<input class="field" id="query" placeholder="Search YouTube">
+<button class="btn primary" id="search">Search</button>
+</div>
+<div class="row" style="margin-top:12px">
+<input class="field" id="apiKey" type="password" placeholder="YouTube Data API Key">
+<button class="btn" id="saveKey">Save key</button>
+</div>
+<p class="status" id="ytStatus">YouTube search API can be configured later.</p>
+<div id="results" class="results"></div>
+<div class="row" style="margin-top:20px">
+<input class="field" id="ytUrl" placeholder="YouTube video URL">
+<button class="btn primary" id="playUrl">Play</button>
 </div>
 <div class="player" id="ytPlayer">
-<div class="placeholder">
-<strong>▶ VOLTPLAY YouTube</strong>
-<span data-ar="أدخل رابط فيديو للبدء" data-en="Enter a video link to start">أدخل رابط فيديو للبدء</span>
+<div class="placeholder"><strong>▶ VOLTPLAY PLAYER</strong>Select a video to start</div>
 </div>
 </div>
-<p class="small" data-ar="يعتمد التشغيل على دعم YouTube للتضمين واتصال الإنترنت." data-en="Playback depends on YouTube embed permissions and your internet connection.">يعتمد التشغيل على دعم YouTube للتضمين واتصال الإنترنت.</p>
 </section>
 
-<section id="iptv" class="panel hidden">
-<h2 data-ar="قنوات IPTV الخاصة بك" data-en="Your IPTV channels">قنوات IPTV الخاصة بك</h2>
-<p class="muted" data-ar="استخدم قائمة M3U تملك حق الوصول إليها. اختر ملفاً من جهازك أو أدخل رابط القائمة." data-en="Use an M3U playlist you are authorized to access. Load a local file or enter its URL.">استخدم قائمة M3U تملك حق الوصول إليها. اختر ملفاً من جهازك أو أدخل رابط القائمة.</p>
+<section id="live" class="page hidden">
+<div class="panel">
+<h2 data-en="Live TV / IPTV" data-ar="التلفزيون المباشر / IPTV">Live TV / IPTV</h2>
+<p class="muted" data-en="Load your own authorized M3U playlist." data-ar="حمّل قائمة M3U الخاصة بك والتي تملك حق استخدامها.">Load your own authorized M3U playlist.</p>
 <div class="row">
-<input id="m3uUrl" class="field" type="url" placeholder="M3U playlist URL">
-<button id="loadUrl" class="btn red" data-ar="تحميل الرابط" data-en="Load URL">تحميل الرابط</button>
-<label class="btn filelabel">
-<span data-ar="اختيار ملف" data-en="Choose file">اختيار ملف</span>
-<input id="m3uFile" type="file" accept=".m3u,.m3u8">
-</label>
+<input class="field" id="m3uUrl" placeholder="M3U URL">
+<button class="btn primary" id="loadUrl">Load URL</button>
+<input type="file" id="m3uFile" accept=".m3u,.m3u8">
 </div>
-<div class="note" data-ar="قد تمنع قواعد CORS تحميل بعض الروابط. إذا حدث ذلك، نزّل ملف M3U واختره من جهازك. لا تتضمن VOLTPLAY أي قنوات أو اشتراكات." data-en="CORS may block some playlist URLs. If so, download the M3U file and select it locally. VOLTPLAY does not provide channels or subscriptions.">قد تمنع قواعد CORS تحميل بعض الروابط. إذا حدث ذلك، نزّل ملف M3U واختره من جهازك. لا تتضمن VOLTPLAY أي قنوات أو اشتراكات.</div>
-<div class="status" id="iptvStatus" aria-live="polite">لم يتم تحميل قائمة بعد.</div>
-<div class="player" id="tvPlayer">
-<div class="placeholder">
-<strong>▣ LIVE TV</strong>
-<span data-ar="اختر قائمة M3U ثم قناة" data-en="Load an M3U playlist, then choose a channel">اختر قائمة M3U ثم قناة</span>
-</div>
-</div>
-<div class="toolbar">
-<input id="filter" class="field" placeholder="ابحث عن قناة" data-ar-placeholder="ابحث عن قناة" data-en-placeholder="Search channels">
-</div>
+<div class="note" data-en="VOLTPLAY does not provide channels or subscriptions. Some URLs may be blocked by CORS." data-ar="لا توفر VOLTPLAY قنوات أو اشتراكات. قد تمنع قيود CORS بعض الروابط.">VOLTPLAY does not provide channels or subscriptions. Some URLs may be blocked by CORS.</div>
+<p id="iptvStatus" class="status">No playlist loaded.</p>
+<div class="player" id="tvPlayer"><div class="placeholder"><strong>▣ LIVE TV</strong>Select a channel</div></div>
+<input class="field" id="filter" placeholder="Search channels" style="margin-top:12px">
 <div id="channels" class="channels"></div>
+</div>
 </section>
 
-<section id="library" class="panel hidden">
-<h2 data-ar="مكتبتي" data-en="My Library">مكتبتي</h2>
-<p class="muted" data-ar="مساحة مبدئية للمفضلة. الحسابات والحفظ السحابي مرحلة لاحقة." data-en="A starter space for favourites. Accounts and cloud sync are planned for a later phase.">مساحة مبدئية للمفضلة. الحسابات والحفظ السحابي مرحلة لاحقة.</p>
-<div class="note" data-ar="هذه نسخة أولية تعمل في المتصفح؛ لا يوجد تسجيل دخول أو حفظ سحابي حتى الآن." data-en="This beta runs in the browser; sign-in and cloud sync are not included yet.">هذه نسخة أولية تعمل في المتصفح؛ لا يوجد تسجيل دخول أو حفظ سحابي حتى الآن.</div>
+<section id="movies" class="page hidden">
+<div class="panel">
+<h2 data-en="Movies" data-ar="أفلام">Movies</h2>
+<p class="muted" data-en="Connect an authorized movie library or provider in a future update." data-ar="سنربط مكتبة أفلام أو مزوداً مرخصاً في تحديث لاحق.">Connect an authorized movie library or provider in a future update.</p>
+<div class="note">Movie catalogue integration is planned for the next phase.</div>
+</div>
 </section>
 
-<div class="foot">© 2026 VOLTPLAY · Built for parked-mode entertainment</div>
+<section id="series" class="page hidden">
+<div class="panel">
+<h2 data-en="Series" data-ar="مسلسلات">Series</h2>
+<p class="muted" data-en="Your series and episodes library will be connected in a future update." data-ar="سنضيف مكتبة المسلسلات والحلقات في تحديث لاحق.">Your series and episodes library will be connected in a future update.</p>
+</div>
+</section>
+
+<section id="library" class="page hidden">
+<div class="panel">
+<h2 data-en="My Library" data-ar="مكتبتي">My Library</h2>
+<p class="muted" data-en="Your saved items. Cloud sync will come later." data-ar="العناصر المحفوظة. المزامنة السحابية لاحقاً.">Your saved items. Cloud sync will come later.</p>
+</div>
+</section>
+
+<section id="settings" class="page hidden">
+<div class="panel">
+<h2 data-en="Settings" data-ar="الإعدادات">Settings</h2>
+<p class="muted" data-en="VOLTPLAY Tesla Edition settings." data-ar="إعدادات VOLTPLAY Tesla Edition.">VOLTPLAY Tesla Edition settings.</p>
+<button class="btn" id="clear">Clear local API key</button>
+<div class="note">Accounts, cloud sync, payments and Xtream Codes are not active yet.</div>
+</div>
+</section>
+<footer>© 2026 VOLTPLAY · TESLA EDITION</footer>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script>
 (()=>{
-'use strict';
-let english=false,channels=[],hls=null;
 const $=id=>document.getElementById(id);
+let english=true,channels=[],hls=null;
 
-document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{
-document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));
-['youtube','iptv','library'].forEach(id=>$(id).classList.toggle('hidden',id!==b.dataset.tab));
-}));
+function go(page){
+document.querySelectorAll('.page').forEach(x=>x.classList.toggle('hidden',x.id!==page));
+document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===page));
+window.scrollTo(0,0);
+}
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go(b.dataset.page));
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
 
-$('homeBtn').onclick=()=>document.querySelector('[data-tab="youtube"]').click();
-
-$('langBtn').onclick=()=>{
+$('language').onclick=()=>{
 english=!english;
 document.documentElement.lang=english?'en':'ar';
 document.documentElement.dir=english?'ltr':'rtl';
-document.querySelectorAll('[data-ar]').forEach(e=>e.innerHTML=english?e.dataset.en:e.dataset.ar);
-$('langBtn').textContent=english?'AR':'EN';
+document.querySelectorAll('[data-en]').forEach(x=>x.innerHTML=english?x.dataset.en:x.dataset.ar);
+$('language').textContent=english?'AR':'EN';
+$('query').placeholder=english?'Search YouTube':'ابحث في YouTube';
 $('filter').placeholder=english?'Search channels':'ابحث عن قناة';
 };
 
-function ytId(s){
+$('apiKey').value=localStorage.getItem('voltplay_api_key')||'';
+$('saveKey').onclick=()=>{
+localStorage.setItem('voltplay_api_key',$('apiKey').value.trim());
+$('ytStatus').textContent='API key saved on this device.';
+};
+
+function videoId(url){
 try{
-let u=new URL(s);
-if(u.hostname.includes('youtu.be'))return u.pathname.slice(1).split('/')[0];
+const u=new URL(url);
+if(u.hostname.includes('youtu.be'))return u.pathname.slice(1);
 if(u.hostname.includes('youtube.com')){
 if(u.pathname==='/watch')return u.searchParams.get('v');
-let m=u.pathname.match(/\/(embed|shorts|live)\/([^/?]+)/);
+const m=u.pathname.match(/\/(embed|shorts|live)\/([^/?]+)/);
 return m?m[2]:null;
 }
 }catch(e){}
 return null;
 }
 
-$('playYt').onclick=()=>{
-let id=ytId($('ytUrl').value.trim());
-if(!id){alert(english?'Enter a valid YouTube link.':'أدخل رابط YouTube صحيح.');return;}
-$('ytPlayer').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0" title="YouTube player" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>';
+function playYouTube(id){
+$('ytPlayer').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+}
+
+$('playUrl').onclick=()=>{
+const id=videoId($('ytUrl').value.trim());
+if(id)playYouTube(id);
+else alert('Enter a valid YouTube URL');
 };
 
-function parseM3U(s){
-let out=[],meta={};
-for(let line of s.replace(/^\uFEFF/,'').split(/\r?\n/)){
-line=line.trim();
-if(!line)continue;
-if(line.startsWith('#EXTINF:')){
-let i=line.indexOf(',');
-let attrs=i<0?line:line.slice(0,i);
-meta={
-name:i<0?'Channel '+(out.length+1):line.slice(i+1).trim(),
-group:(attrs.match(/group-title="([^"]*)"/i)||[])[1]||''
+$('search').onclick=async()=>{
+const key=localStorage.getItem('voltplay_api_key')||$('apiKey').value.trim();
+const q=$('query').value.trim();
+if(!key){$('ytStatus').textContent='YouTube API key is required for search.';return;}
+if(!q)return;
+$('ytStatus').textContent='Searching…';
+try{
+const url='https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=18&regionCode=BE&q='+encodeURIComponent(q)+'&key='+encodeURIComponent(key);
+const response=await fetch(url);
+const data=await response.json();
+if(!response.ok)throw Error(data.error?.message||'Search failed');
+$('results').innerHTML='';
+(data.items||[]).forEach(item=>{
+const b=document.createElement('button');
+b.className='video';
+const img=document.createElement('img');
+img.src=item.snippet.thumbnails.medium.url;
+const title=document.createElement('span');
+title.textContent=item.snippet.title;
+b.append(img,title);
+b.onclick=()=>playYouTube(item.id.videoId);
+$('results').append(b);
+});
+$('ytStatus').textContent=data.items.length+' videos found';
+}catch(e){$('ytStatus').textContent=e.message;}
 };
-}else if(!line.startsWith('#')){
-out.push({name:meta.name||'Channel '+(out.length+1),group:meta.group||'',url:line});
+
+function parseM3U(text){
+const list=[];
+let meta={};
+text.replace(/^\uFEFF/,'').split(/\r?\n/).forEach(line=>{
+line=line.trim();
+if(line.startsWith('#EXTINF:')){
+const i=line.indexOf(',');
+meta={
+name:i<0?'Channel '+(list.length+1):line.slice(i+1).trim(),
+group:(line.match(/group-title="([^"]*)"/i)||[])[1]||''
+};
+}else if(line&&!line.startsWith('#')){
+list.push({name:meta.name||'Channel '+(list.length+1),group:meta.group||'',url:line});
 meta={};
 }
-}
-return out;
+});
+return list;
 }
 
-function status(s){$('iptvStatus').textContent=s;}
-
-function render(){
-let q=$('filter').value.toLowerCase();
+function renderChannels(){
+const q=$('filter').value.toLowerCase();
 $('channels').innerHTML='';
 channels.filter(c=>(c.name+' '+c.group).toLowerCase().includes(q)).forEach(c=>{
-let b=document.createElement('button');
+const b=document.createElement('button');
 b.className='channel';
-let strong=document.createElement('strong');
-let small=document.createElement('small');
-strong.textContent=c.name;
-small.textContent=c.group||'IPTV';
-b.append(strong,small);
-b.onclick=()=>play(c,b);
+const title=document.createElement('strong');
+const group=document.createElement('small');
+title.textContent=c.name;
+group.textContent=c.group||'IPTV';
+b.append(title,group);
+b.onclick=()=>{
+if(hls){hls.destroy();hls=null;}
+$('tvPlayer').innerHTML='<video id="tvVideo" controls autoplay playsinline></video>';
+const v=$('tvVideo');
+if(/\.m3u8($|\?)/i.test(c.url)&&window.Hls&&Hls.isSupported()){
+hls=new Hls();hls.loadSource(c.url);hls.attachMedia(v);
+}else v.src=c.url;
+v.play().catch(()=>{});
+};
 $('channels').append(b);
 });
 }
 
-function play(c,b){
-document.querySelectorAll('.channel').forEach(x=>x.classList.remove('selected'));
-b.classList.add('selected');
-if(hls){hls.destroy();hls=null;}
-$('tvPlayer').innerHTML='<video id="iptvVideo" controls autoplay playsinline></video>';
-let v=$('iptvVideo');
-if(/\.m3u8($|\?)/i.test(c.url)&&window.Hls&&Hls.isSupported()){
-hls=new Hls();
-hls.loadSource(c.url);
-hls.attachMedia(v);
-hls.on(Hls.Events.ERROR,(_,d)=>{
-if(d.fatal)status(english?'Stream playback failed. Check provider compatibility.':'فشل تشغيل البث. تحقق من توافق رابط المزوّد.');
-});
-}else{
-v.src=c.url;
-}
-v.play().catch(()=>{});
-status((english?'Selected: ':'القناة المختارة: ')+c.name);
-}
-
-function load(s,source){
-channels=parseM3U(s);
-render();
-status(channels.length?(english?'Loaded ':'تم تحميل ')+channels.length+(english?' channels from ':' قناة من ')+source:(english?'No channels found.':'لم يتم العثور على قنوات.'));
+function loadPlaylist(text){
+channels=parseM3U(text);
+renderChannels();
+$('iptvStatus').textContent=channels.length+' channels loaded';
 }
 
 $('m3uFile').onchange=async e=>{
-let f=e.target.files[0];
-if(f)try{load(await f.text(),f.name);}
-catch(_){status('تعذرت قراءة الملف');}
+const f=e.target.files[0];
+if(f)loadPlaylist(await f.text());
 };
 
 $('loadUrl').onclick=async()=>{
-let u=$('m3uUrl').value.trim();
-if(!u)return alert(english?'Enter an M3U URL.':'أدخل رابط M3U.');
-status(english?'Loading…':'جارٍ التحميل…');
+const url=$('m3uUrl').value.trim();
+if(!url)return;
+$('iptvStatus').textContent='Loading…';
 try{
-let r=await fetch(u);
-if(!r.ok)throw Error();
-load(await r.text(),u);
-}catch(_){
-status(english?'Could not load URL (CORS/provider restriction). Try a local M3U file.':'تعذر تحميل الرابط (CORS أو قيود المزوّد). جرّب اختيار ملف M3U من الجهاز.');
+const response=await fetch(url);
+if(!response.ok)throw Error();
+loadPlaylist(await response.text());
+}catch(e){
+$('iptvStatus').textContent='Could not load URL. Try a local M3U file; CORS restrictions may apply.';
 }
 };
 
-$('filter').oninput=render;
+$('filter').oninput=renderChannels;
+$('clear').onclick=()=>{
+localStorage.removeItem('voltplay_api_key');
+$('apiKey').value='';
+$('ytStatus').textContent='API key cleared.';
+};
 })();
 </script>
 </body>
