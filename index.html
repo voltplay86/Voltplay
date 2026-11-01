@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VOLTPLAY</title>
+
+<style>
+
+* {box-sizing:border-box}
+
+body {
+
+  margin:0;
+
+  background:#090a0e;
+
+  color:white;
+
+  font-family:Arial,sans-serif;
+
+}
+
+header {
+
+  padding:25px 20px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  border-bottom:1px solid #292a30;
+
+}
+
+.logo {font-size:27px;font-weight:bold;color:#ff303b}
+
+button {
+
+  background:#ff303b;
+
+  color:white;
+
+  border:0;
+
+  border-radius:9px;
+
+  padding:12px 18px;
+
+  cursor:pointer;
+
+}
+
+.hero {
+
+  text-align:center;
+
+  padding:65px 20px;
+
+  background:linear-gradient(150deg,#281014,#090a0e 75%);
+
+}
+
+.hero h1 {font-size:42px;margin:10px}
+
+.hero h1 span {color:#ff303b}
+
+.hero p {color:#aaa;line-height:1.8}
+
+main {padding:25px 18px;max-width:900px;margin:auto}
+
+h2 {border-right:4px solid #ff303b;padding-right:12px}
+
+.grid {
+
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:14px;
+
+}
+
+.card {
+
+  background:#17191f;
+
+  padding:24px 12px;
+
+  border-radius:14px;
+
+  text-align:center;
+
+  border:1px solid #292a30;
+
+}
+
+.card .emoji {font-size:32px}
+
+.card h3 {margin-bottom:5px}
+
+.card p {color:#aaa;font-size:13px}
+
+footer {text-align:center;padding:30px;color:#777}
+
+@media(min-width:650px) {
+
+  .grid {grid-template-columns:repeat(3,1fr)}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">⚡ VOLTPLAY</div>
+
+  <button onclick="toggleLang()">EN / عربي</button>
+
+</header>
+
+<section class="hero">
+
+  <h1>مرحباً بك في <span>VOLTPLAY</span></h1>
+
+  <p>عالم الترفيه الذكي داخل سيارتك الكهربائية</p>
+
+  <button onclick="document.getElementById('services').scrollIntoView()">اكتشف المنصة</button>
+
+</section>
+
+<main id="services">
+
+  <h2>استكشف VOLTPLAY</h2>
+
+  <div class="grid">
+
+    <div class="card"><div class="emoji">🎬</div><h3>الأفلام</h3><p>منصات مشاهدة الأفلام</p></div>
+
+    <div class="card"><div class="emoji">▶️</div><h3>يوتيوب</h3><p>محتوى الفيديو</p></div>
+
+    <div class="card"><div class="emoji">🎵</div><h3>الموسيقى</h3><p>عالم الموسيقى</p></div>
+
+    <div class="card"><div class="emoji">🎮</div><h3>الألعاب</h3><p>ألعاب وترفيه</p></div>
+
+    <div class="card"><div class="emoji">🚗</div><h3>عالم تسلا</h3><p>أدوات ومعلومات السيارات</p></div>
+
+    <div class="card"><div class="emoji">🌐</div><h3>المتصفح</h3><p>اكتشف الإنترنت</p></div>
+
+  </div>
+
+</main>
+
+<footer>© 2026 VOLTPLAY — Drive. Connect. Enjoy.</footer>
+
+<script>
+
+let english=false;
+
+function toggleLang(){
+
+  english=!english;
+
+  document.documentElement.lang=english?'en':'ar';
+
+  document.documentElement.dir=english?'ltr':'rtl';
+
+  document.querySelector('.hero h1').innerHTML=english?
+
+    'WELCOME TO <span>VOLTPLAY</span>':
+
+    'مرحباً بك في <span>VOLTPLAY</span>';
+
+  document.querySelector('.hero p').textContent=english?
+
+    'Your electric car entertainment world':
+
+    'عالم الترفيه الذكي داخل سيارتك الكهربائية';
+
+}
+
+</script>
+
+</body>
+
+</html>
