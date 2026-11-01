@@ -8,111 +8,239 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VOLTPLAY</title>
+<meta name="theme-color" content="#080a0e">
+
+<title>VOLTPLAY | Electric, Elevated</title>
 
 <style>
 
-* {box-sizing:border-box}
+:root {
 
-body {
+  --bg:#080a0e;
 
-  margin:0;
+  --panel:#141923;
 
-  background:#090a0e;
+  --red:#ff4055;
 
-  color:white;
+  --cyan:#65e5ef;
 
-  font-family:Arial,sans-serif;
-
-}
-
-header {
-
-  padding:25px 20px;
-
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  border-bottom:1px solid #292a30;
+  --muted:#9ba6b5;
 
 }
 
-.logo {font-size:27px;font-weight:bold;color:#ff303b}
+*{box-sizing:border-box}
 
-button {
+html{scroll-behavior:smooth}
 
-  background:#ff303b;
+body{
 
-  color:white;
+ margin:0;
 
-  border:0;
+ background:radial-gradient(ellipse at 80% 0%,#ff40551c,transparent 40%),var(--bg);
 
-  border-radius:9px;
+ color:white;
 
-  padding:12px 18px;
-
-  cursor:pointer;
+ font-family:Arial,sans-serif;
 
 }
 
-.hero {
+header{
 
-  text-align:center;
+ height:76px;padding:0 7%;
 
-  padding:65px 20px;
+ display:flex;align-items:center;
 
-  background:linear-gradient(150deg,#281014,#090a0e 75%);
+ justify-content:space-between;
 
-}
+ border-bottom:1px solid #ffffff15;
 
-.hero h1 {font-size:42px;margin:10px}
+ background:#080a0eea;
 
-.hero h1 span {color:#ff303b}
-
-.hero p {color:#aaa;line-height:1.8}
-
-main {padding:25px 18px;max-width:900px;margin:auto}
-
-h2 {border-right:4px solid #ff303b;padding-right:12px}
-
-.grid {
-
-  display:grid;
-
-  grid-template-columns:repeat(2,1fr);
-
-  gap:14px;
+ position:sticky;top:0;z-index:10;
 
 }
 
-.card {
+.logo{font-size:25px;font-weight:900;letter-spacing:2px}
 
-  background:#17191f;
+.logo span{color:var(--red)}
 
-  padding:24px 12px;
+.logo small{display:block;font-size:9px;color:#8994a3;letter-spacing:3px}
 
-  border-radius:14px;
+nav{display:flex;gap:25px}
 
-  text-align:center;
+nav a{color:#aeb8c5;text-decoration:none;font-size:13px}
 
-  border:1px solid #292a30;
+button{
+
+ cursor:pointer;color:white;
+
+ border:1px solid #343d4a;
+
+ border-radius:10px;padding:12px 17px;
+
+ background:#171e29;
 
 }
 
-.card .emoji {font-size:32px}
+.hero{
 
-.card h3 {margin-bottom:5px}
+ min-height:590px;padding:65px 8%;
 
-.card p {color:#aaa;font-size:13px}
+ display:grid;grid-template-columns:1fr 1fr;
 
-footer {text-align:center;padding:30px;color:#777}
+ align-items:center;gap:35px;
 
-@media(min-width:650px) {
+}
 
-  .grid {grid-template-columns:repeat(3,1fr)}
+.tag{color:var(--cyan);font-size:12px;letter-spacing:2px}
+
+h1{font-size:clamp(43px,6vw,75px);line-height:1.15;margin:22px 0}
+
+h1 span{color:var(--red)}
+
+.description{color:var(--muted);line-height:2;font-size:16px;max-width:490px}
+
+.primary{
+
+ background:linear-gradient(110deg,#ff5365,#bd1b38);
+
+ border:0;font-weight:bold;padding:15px 22px;
+
+ box-shadow:0 10px 30px #ff40552c;
+
+}
+
+.hero-visual{
+
+ min-height:350px;display:flex;
+
+ align-items:center;justify-content:center;
+
+ position:relative;
+
+}
+
+.orbit{
+
+ position:absolute;width:320px;height:320px;
+
+ border:1px solid #ffffff19;border-radius:50%;
+
+ box-shadow:0 0 90px #ff405516;
+
+}
+
+.orbit:before{
+
+ content:"";position:absolute;inset:35px;
+
+ border:1px solid #ffffff12;border-radius:50%;
+
+}
+
+.car{
+
+ position:relative;width:100%;max-width:440px;
+
+ padding:20px;border:1px solid #ffffff22;
+
+ border-radius:22px;
+
+ background:linear-gradient(145deg,#222b38,#10151d);
+
+ box-shadow:0 30px 80px #0009;
+
+}
+
+.car svg{width:100%;margin:25px 0}
+
+.car-label{font-size:11px;letter-spacing:3px;color:#a4afbd}
+
+.stats{display:flex;justify-content:space-between;border-top:1px solid #ffffff20;padding-top:15px}
+
+.stats strong{display:block;font-size:19px}
+
+.stats small{color:var(--muted)}
+
+main{max-width:1150px;margin:auto;padding:25px 25px}
+
+.section-title{margin:35px 0 20px}
+
+.section-title h2{font-size:27px}
+
+.section-title p{color:var(--muted);font-size:13px}
+
+.grid{
+
+ display:grid;grid-template-columns:repeat(3,1fr);
+
+ gap:15px;
+
+}
+
+.card{
+
+ padding:23px;min-height:175px;
+
+ border:1px solid #ffffff16;border-radius:17px;
+
+ background:linear-gradient(145deg,#1a212c,#10151d);
+
+ transition:.25s;
+
+}
+
+.card:hover{transform:translateY(-5px);border-color:var(--red)}
+
+.icon{font-size:29px;margin-bottom:20px}
+
+.card h3{font-size:17px}
+
+.card p{font-size:12px;color:var(--muted);line-height:1.8}
+
+.feature{
+
+ margin:55px 0;padding:30px;
+
+ border:1px solid #ffffff18;border-radius:18px;
+
+ background:#141a24;
+
+}
+
+.feature p{color:var(--muted);line-height:2}
+
+footer{
+
+ padding:30px;text-align:center;
+
+ border-top:1px solid #ffffff15;
+
+ color:#788493;font-size:11px;
+
+}
+
+@media(max-width:750px){
+
+ nav{display:none}
+
+ .hero{grid-template-columns:1fr;padding:50px 7%;gap:10px}
+
+ .hero-visual{min-height:300px}
+
+ .orbit{width:270px;height:270px}
+
+ .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+
+ .card{padding:16px;min-height:160px}
+
+ h1{font-size:46px}
+
+}
+
+@media(max-width:390px){
+
+ .grid{grid-template-columns:1fr}
 
 }
 
@@ -124,71 +252,247 @@ footer {text-align:center;padding:30px;color:#777}
 
 <header>
 
-  <div class="logo">⚡ VOLTPLAY</div>
+ <div class="logo">⚡ VOLT<span>PLAY</span>
 
-  <button onclick="toggleLang()">EN / عربي</button>
+ <small>ELECTRIC, ELEVATED</small></div>
+
+ <nav>
+
+  <a href="#explore" data-ar="استكشف" data-en="Explore">استكشف</a>
+
+  <a href="#vision" data-ar="رؤيتنا" data-en="Our Vision">رؤيتنا</a>
+
+ </nav>
+
+ <button id="language">EN / AR</button>
 
 </header>
 
 <section class="hero">
 
-  <h1>مرحباً بك في <span>VOLTPLAY</span></h1>
+ <div>
 
-  <p>عالم الترفيه الذكي داخل سيارتك الكهربائية</p>
+  <div class="tag" data-ar="عالم السيارات الكهربائية" data-en="THE ELECTRIC UNIVERSE">عالم السيارات الكهربائية</div>
 
-  <button onclick="document.getElementById('services').scrollIntoView()">اكتشف المنصة</button>
+  <h1 data-ar="مستقبل القيادة.<br><span>بلا حدود.</span>" data-en="The future of driving.<br><span>Without limits.</span>">
 
-</section>
+   مستقبل القيادة.<br><span>بلا حدود.</span>
 
-<main id="services">
+  </h1>
 
-  <h2>استكشف VOLTPLAY</h2>
+  <p class="description"
 
-  <div class="grid">
+   data-ar="اكتشف عالماً جديداً يجمع الترفيه والتكنولوجيا وتسلا والسيارات الكهربائية في تجربة رقمية واحدة."
 
-    <div class="card"><div class="emoji">🎬</div><h3>الأفلام</h3><p>منصات مشاهدة الأفلام</p></div>
+   data-en="Discover a new world combining entertainment, technology, Tesla and electric vehicles in one digital experience.">
 
-    <div class="card"><div class="emoji">▶️</div><h3>يوتيوب</h3><p>محتوى الفيديو</p></div>
+   اكتشف عالماً جديداً يجمع الترفيه والتكنولوجيا وتسلا والسيارات الكهربائية في تجربة رقمية واحدة.
 
-    <div class="card"><div class="emoji">🎵</div><h3>الموسيقى</h3><p>عالم الموسيقى</p></div>
+  </p>
 
-    <div class="card"><div class="emoji">🎮</div><h3>الألعاب</h3><p>ألعاب وترفيه</p></div>
+  <button class="primary" onclick="document.getElementById('explore').scrollIntoView({behavior:'smooth'})"
 
-    <div class="card"><div class="emoji">🚗</div><h3>عالم تسلا</h3><p>أدوات ومعلومات السيارات</p></div>
+   data-ar="اكتشف VOLTPLAY ↙" data-en="EXPLORE VOLTPLAY ↙">
 
-    <div class="card"><div class="emoji">🌐</div><h3>المتصفح</h3><p>اكتشف الإنترنت</p></div>
+   اكتشف VOLTPLAY ↙
+
+  </button>
+
+ </div>
+
+ <div class="hero-visual">
+
+  <div class="orbit"></div>
+
+  <div class="car">
+
+   <div class="car-label">VOLTPLAY / ELECTRIC MOBILITY</div>
+
+   <svg viewBox="0 0 500 230" role="img" aria-label="Futuristic electric car">
+
+    <defs>
+
+     <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+
+      <stop stop-color="#f4f6fa"/>
+
+      <stop offset=".5" stop-color="#8996a8"/>
+
+      <stop offset="1" stop-color="#303b4d"/>
+
+     </linearGradient>
+
+     <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+
+      <stop stop-color="#29445c"/>
+
+      <stop offset="1" stop-color="#09111b"/>
+
+     </linearGradient>
+
+    </defs>
+
+    <ellipse cx="250" cy="195" rx="190" ry="15" fill="#000" opacity=".5"/>
+
+    <path d="M45 155 L90 125 L155 75 Q175 55 220 55 L320 60 Q355 65 390 105 L450 140 L465 170 L430 190 L70 190 L40 175Z" fill="url(#body)" stroke="#dce5f0" stroke-width="2"/>
+
+    <path d="M140 125 L180 80 Q195 65 220 65 L270 65 L270 125Z" fill="url(#glass)"/>
+
+    <path d="M285 65 L320 70 Q350 75 375 125 L285 125Z" fill="url(#glass)"/>
+
+    <path d="M275 65 L275 130" stroke="#9daec2" stroke-width="3"/>
+
+    <path d="M60 145 L120 138" stroke="#ff4055" stroke-width="6" stroke-linecap="round"/>
+
+    <path d="M405 140 L450 155" stroke="#ff4055" stroke-width="6" stroke-linecap="round"/>
+
+    <circle cx="145" cy="185" r="28" fill="#090d13" stroke="#8995a6" stroke-width="5"/>
+
+    <circle cx="145" cy="185" r="13" fill="#394758"/>
+
+    <circle cx="385" cy="185" r="28" fill="#090d13" stroke="#8995a6" stroke-width="5"/>
+
+    <circle cx="385" cy="185" r="13" fill="#394758"/>
+
+   </svg>
+
+   <div class="stats">
+
+    <div><strong>EV</strong><small data-ar="عالم كهربائي" data-en="Electric world">عالم كهربائي</small></div>
+
+    <div><strong>∞</strong><small data-ar="بلا حدود" data-en="No limits">بلا حدود</small></div>
+
+    <div><strong>01</strong><small data-ar="المستقبل" data-en="The future">المستقبل</small></div>
+
+   </div>
 
   </div>
 
+ </div>
+
+</section>
+
+<main>
+
+ <section id="explore">
+
+  <div class="section-title">
+
+   <div class="tag">THE VOLTPLAY UNIVERSE</div>
+
+   <h2 data-ar="عالم كامل. تجربة واحدة." data-en="One Universe. One Experience.">عالم كامل. تجربة واحدة.</h2>
+
+   <p data-ar="كل ما تحتاجه في عالم السيارات الكهربائية." data-en="Everything you need in the electric vehicle world.">كل ما تحتاجه في عالم السيارات الكهربائية.</p>
+
+  </div>
+
+  <div class="grid">
+
+   <div class="card">
+
+    <div class="icon">🎬</div>
+
+    <h3 data-ar="السينما والأفلام" data-en="Cinema & Movies">السينما والأفلام</h3>
+
+    <p data-ar="اكتشف عالم المشاهدة والترفيه." data-en="Explore movies and entertainment.">اكتشف عالم المشاهدة والترفيه.</p>
+
+   </div>
+
+   <div class="card">
+
+    <div class="icon">ϟ</div>
+
+    <h3 data-ar="عالم تسلا" data-en="Tesla Universe">عالم تسلا</h3>
+
+    <p data-ar="ميزات وحيل ومعلومات تسلا." data-en="Tesla features, tips and insights.">ميزات وحيل ومعلومات تسلا.</p>
+
+   </div>
+
+   <div class="card">
+
+    <div class="icon">🔋</div>
+
+    <h3 data-ar="الشحن والبطارية" data-en="Charging & Battery">الشحن والبطارية</h3>
+
+    <p data-ar="أدوات لفهم الشحن والمدى." data-en="Tools for charging and range.">أدوات لفهم الشحن والمدى.</p>
+
+   </div>
+
+   <div class="card">
+
+    <div class="icon">🎵</div>
+
+    <h3 data-ar="الموسيقى والصوت" data-en="Music & Audio">الموسيقى والصوت</h3>
+
+    <p data-ar="عالم الموسيقى والصوتيات." data-en="Music and audio experiences.">عالم الموسيقى والصوتيات.</p>
+
+   </div>
+
+   <div class="card">
+
+    <div class="icon">🧠</div>
+
+    <h3 data-ar="الأدوات الذكية" data-en="Smart Tools">الأدوات الذكية</h3>
+
+    <p data-ar="أدوات ومساعدات لسيارتك." data-en="Utilities and assistants for your car.">أدوات ومساعدات لسيارتك.</p>
+
+   </div>
+
+   <div class="card">
+
+    <div class="icon">🌐</div>
+
+    <h3 data-ar="مجتمع السيارات الكهربائية" data-en="EV Community">مجتمع السيارات الكهربائية</h3>
+
+    <p data-ar="أخبار وتقنيات ومستقبل التنقل." data-en="News, technology and future mobility.">أخبار وتقنيات ومستقبل التنقل.</p>
+
+   </div>
+
+  </div>
+
+ </section>
+
+ <section class="feature" id="vision">
+
+  <h2 data-ar="ليست مجرد منصة. إنها تجربة جديدة." data-en="More than a platform. A new experience.">ليست مجرد منصة. إنها تجربة جديدة.</h2>
+
+  <p data-ar="VOLTPLAY — وجهتك لعالم السيارات الكهربائية، نبدأ اليوم ونبني المستقبل معاً."
+
+     data-en="VOLTPLAY — Your destination for electric mobility. We start today and build the future together.">
+
+   VOLTPLAY — وجهتك لعالم السيارات الكهربائية، نبدأ اليوم ونبني المستقبل معاً.
+
+  </p>
+
+  <div class="tag">DRIVE · CONNECT · ENJOY</div>
+
+ </section>
+
 </main>
 
-<footer>© 2026 VOLTPLAY — Drive. Connect. Enjoy.</footer>
+<footer>© 2026 VOLTPLAY — ELECTRIC, ELEVATED ⚡</footer>
 
 <script>
 
 let english=false;
 
-function toggleLang(){
+document.getElementById('language').addEventListener('click',()=>{
 
-  english=!english;
+ english=!english;
 
-  document.documentElement.lang=english?'en':'ar';
+ document.documentElement.lang=english?'en':'ar';
 
-  document.documentElement.dir=english?'ltr':'rtl';
+ document.documentElement.dir=english?'ltr':'rtl';
 
-  document.querySelector('.hero h1').innerHTML=english?
+ document.querySelectorAll('[data-ar]').forEach(el=>{
 
-    'WELCOME TO <span>VOLTPLAY</span>':
+  el.innerHTML=english?el.dataset.en:el.dataset.ar;
 
-    'مرحباً بك في <span>VOLTPLAY</span>';
+ });
 
-  document.querySelector('.hero p').textContent=english?
+ document.getElementById('language').textContent=english?'AR / EN':'EN / AR';
 
-    'Your electric car entertainment world':
-
-    'عالم الترفيه الذكي داخل سيارتك الكهربائية';
-
-}
+});
 
 </script>
 
